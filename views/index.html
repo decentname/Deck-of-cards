@@ -2,42 +2,91 @@
 <html>
 <head>
 	<title>Test App for Express-mongo</title>
-	<link rel = "stylesheet" href = "css/semantic.min.css"/>
+	<!-- <link rel = "stylesheet" href = "css/semantic.min.css"/> -->
 	<link rel = "stylesheet" href = "css/index.css"/>
 </head>
 <body>
-	<div class="ui middle aligned center aligned grid">
-  		<div class="column">
-    		<h2 class="ui teal image header">
-      			<div class="content">
-        			Log-in to your account
-      			</div>
-    		</h2>
-	    	<form class="ui large form">
-	      		<div class="ui stacked segment">
-	        		<div class="field">
-	          			<div class="ui left icon input">
-	            			<input type="text" name="email" placeholder="E-mail address">
-	          			</div>
-	        		</div>
-	        		<div class="field">
-	          			<div class="ui left icon input">
-	            			<input type="password" name="password" placeholder="Password">
-	          			</div>
-	        		</div>
-	        	<div class="ui fluid large teal submit button">Login</div>
-	      		</div>
+	<div class="form">
+      
+      <ul class="tab-group">
+        <li class="tab active"><a href="#signup">Sign Up</a></li>
+        <li class="tab"><a href="#login">Log In</a></li>
+      </ul>
+      
+      <div class="tab-content">
+        <div id="signup">   
+          <h1>Sign Up for Free</h1>
+          
+          <form method="post">
+          
+          <div class="top-row">
+            <div class="field-wrap">
+              <label>
+                First Name<span class="req">*</span>
+              </label>
+              <input type="text"required  name = "firstname" autocomplete="off" />
+            </div>
+        
+            <div class="field-wrap">
+              <label>
+                Last Name<span class="req">*</span>
+              </label>
+              <input type="text"required name = "lastname" autocomplete="off"/>
+            </div>
+          </div>
 
-	      		<div class="ui error message"></div>
-	      	</form>
+          <div class="field-wrap">
+            <label>
+              Email Address<span class="req">*</span>
+            </label>
+            <input type="email"required name = "email" autocomplete="off"/>
+          </div>
+          
+          <div class="field-wrap">
+            <label>
+              Set A Password<span class="req">*</span>
+            </label>
+            <input type="password"required name = "password" autocomplete="off"/>
+          </div>
+          
+          <button type="submit" class="button button-block"/>Get Started</button>
+          
+          </form>
 
-	    	<div class="ui message">
-	      		New to us? <a href="#">Sign Up</a>
-	    	</div>
-  		</div>
-	</div>
+        </div>
+        
+        <div id="login">   
+          <h1>Welcome Back!</h1>
+          
+          <form action = '/login' method="post">
+          
+            <div class="field-wrap">
+            <label>
+              Email Address<span class="req">*</span>
+            </label>
+            <input type="email"required  name = "email" autocomplete="off"/>
+          </div>
+          
+          <div class="field-wrap">
+            <label>
+              Password<span class="req">*</span>
+            </label>
+            <input type="password"required  name = "password" autocomplete="off"/>
+          </div>
+          
+          <p class="forgot"><a href="#">Forgot Password?</a></p>
+          
+          <button class="button button-block"/>Log In</button>
+          
+          </form>
+
+        </div>
+        
+      </div><!-- tab-content -->
+      
+	</div> <!-- /form -->
 	<script type="text/javascript" src='js/jquery-3.2.1.min.js'></script>
 	<script type="text/javascript" src='js/main.js'></script>
-	<script type="text/javascript" src='js/semantic.min.js'></script>
+	<!-- <script type="text/javascript" src='js/semantic.min.js'></script> -->
 </body>
 </html>
