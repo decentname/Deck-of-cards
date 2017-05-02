@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+var session = require('express-session');
 const db = require('./config/db');
 const bodyParser = require('body-parser');
 
@@ -9,7 +10,11 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use(session({
+  resave: false, // don't save session if unmodified
+  saveUninitialized: false, // don't create session until something stored
+  secret: 'keyboard cat'
+}));
 app.use('/',require('./controllers/index'));
 app.use('/comments',require('./controllers/comments'));
 

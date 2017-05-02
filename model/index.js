@@ -5,16 +5,21 @@ hash = function(password) {
   return crypto.createHash('sha1').update(password).digest('base64')
 }
 
-exports.create = function(name, email, password, cb) {
+exports.create = function(firstname,lastname,email, password, cb) {
   var user = {
-    name: name,
+    firstname: firstname,
+    lastname: lastname,
     email: email,
     password: hash(password),
   }
 
-  db.get().collection('users').insertOne({'name':name,'email':email,'password':password},function(err,res){
-    if(err) cb(err,null);
-    cb(null,res);
+  db.get().collection('users').insertOne(user,function(err,res){
+    if(err) {
+      cb(err,null);
+    }
+    else{
+      cb(null,res);
+    }
   })
 }
 

@@ -7,7 +7,10 @@ exports.connect = function(done){
 	MongoClient.connect(url,function(err,mongodb){
 		if(err) return done(err);
 		db = mongodb;
-		done();	
+		db.collection('users').createIndex( { 'email': 1}, { unique: true } ,function(err,res){
+			// console.log(err,res);
+			done();	
+		})
 	})
 }
 

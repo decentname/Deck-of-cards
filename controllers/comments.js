@@ -5,8 +5,10 @@ var Comment = require('../model/comments');
 
 
 router.get('/',function(req,res){
-	
-	res.render('comments');
+	if(req.session.views)	
+		res.render('comments');
+	else
+		res.render('index');
 })
 
 
