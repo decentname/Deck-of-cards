@@ -25,19 +25,17 @@ exports.get = function(email, cb) {
   })
 }
 
-exports.authenticate = function(email, password) {
-  db.get().collection('users').find({'email':email}.toArray(function(err, docs){
-    
+exports.authenticate = function(email, password,cb) {
+  db.get().collection('users').find({'email':email}).toArray(function(err, docs){
+
     if (err) return cb(err);
     if (docs.length === 0) return cb("No such user exist");
+    var user = docs[0];
 
-    console.log(err,docs);
-    // var user = docs[0];
-
-    // if (user.password === hash(password)) {
-    //   cb(null, docs[0])
-    // } else {
-    //   cb('Wrong username/password');
-    // }
+    if (user.password === hash(password)) {
+      cb(null, docs[0])
+    } else {
+      cb('Wrong username/password');
+    }
   }) 
 }

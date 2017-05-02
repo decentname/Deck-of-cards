@@ -12,13 +12,12 @@ router.post('/login',function(req,res){
 	// res.redirect('comments');
 	var email = req.body.email;
 	var password = req.body.password;
-	index.authenticate(function(err,res){
+	index.authenticate(email,password,function(err,resp){
 		if(err){ 
+			console.log(err);
 			backURL=req.header('Referer') || '/';
-  		// do your thang
   			res.redirect(backURL);
   		}
-		// res.redirect('comments');
 	})
 })
 
