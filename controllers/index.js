@@ -2,11 +2,13 @@ const express = require('express');
 var router = express.Router();
 var db = require('../config/db');
 var index = require('../model/index');
-router.all('/',function(req,res){
+router.get('/',function(req,res){
 	if(req.session.email) {
+		// console.log("comments");
 		res.redirect('/comments');
 	}
 	else{
+		// console.log("index");
 		res.render('index');
 	}
 })

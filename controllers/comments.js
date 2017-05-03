@@ -12,6 +12,13 @@ router.get('/',function(req,res){
 })
 
 
+router.get('/logout',function(req,res){
+	req.session.destroy(function(){
+		res.redirect('/');		
+	});	
+})
+
+
 router.get('/getComments',function(req,res){
 	if(req.session.email){
 		Comment.display(function(err,rep){
@@ -39,15 +46,6 @@ router.post('/add',function(req,res){
 				res.send(rep.ops);
 			}
 		})
-	}
-})
-
-router.get('/logout',function(req,res){
-	if(req.session.email){
-		delete req.session['email'];
-		res.redirect('/');
-	}else{
-		res.send("User must be logged in");
 	}
 })
 
