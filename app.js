@@ -16,7 +16,7 @@ app.use(session({
   secret: 'keyboard cat'
 }));
 app.use('/',require('./controllers/index'));
-app.use('/comments',require('./controllers/comments'));
+app.use('/deck',require('./controllers/deck'));
 
 db.connect(function(err){
 	if(err){

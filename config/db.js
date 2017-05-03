@@ -1,5 +1,5 @@
 const {MongoClient} = require('mongodb');
-const url = "mongodb://localhost:27017/userData";
+const url = "mongodb://localhost:27017/Deck-of-cards";
 var db = null;
 
 exports.connect = function(done){
