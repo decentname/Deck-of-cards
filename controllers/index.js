@@ -3,7 +3,7 @@ var router = express.Router();
 var db = require('../config/db');
 var index = require('../model/index');
 router.all('/',function(req,res){
-	if(req.session.views) {
+	if(req.session.email) {
 		res.redirect('/comments');
 	}
 	else{
@@ -12,9 +12,6 @@ router.all('/',function(req,res){
 })
 
 router.post('/login',function(req,res){
-	// console.log(req.body);
-	// console.log(req);
-	// res.redirect('comments');
 	var email = req.body.email;
 	var password = req.body.password;
 	index.authenticate(email,password,function(err,resp){
@@ -24,9 +21,14 @@ router.post('/login',function(req,res){
   			res.redirect(backURL);
   		}
   		else{
-	  		if(req.session.views) ++req.session.views;
-  			req.session.views = 1;
-  			res.redirect('/comments');  			
+	  		if(req.session.email){ 
+	  			
+	  		}
+	  		else{
+	  			req.session.email = email;
+  				res.redirect('/comments');	
+	  		}
+  			  			
   		}
 
 	})
@@ -46,9 +48,14 @@ router.post('/signup',function(req,res){
   			res.redirect(backURL);
 		}
 		else{
-			if(req.session.views) ++req.session.views;
-  			req.session.views = 1;
-			res.redirect('/comments');
+			if(req.session.email){
+				
+			}
+			else{
+				req.session.email = email;
+				res.redirect('/comments');	
+			}
+  			
 		}
 	})
 })
