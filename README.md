@@ -1,5 +1,5 @@
 # express-mongo
-A Basic app using express-mongo where user logs in and adds comments.
+A Basic game where user has to put the cards in right holders. The Session is saved if user logs out.
 1. npm install
 2. node app.js
 3. open at http://localhost:5000/
