@@ -3,20 +3,17 @@
 <head>
 	<title>Deck-of-cards</title>
 	<link rel = "stylesheet" href = "css/deck.css"/>
+	<link rel = "stylesheet" href = "css/jquery-ui.min.css"/>
 </head>
 <body>
 	<div id="content">
  		<div id="cardPile">
- 		<div></div>
- 		<div></div>
- 		<div></div>
 		</div>
   		<div id="cardSlots">
-  		<div></div>
-  		<div></div>
-  		<div></div>
-  		<div></div>
   		</div>
+  		<form action='/deck/logout' action='GET'>
+		<button id="logout">Logout</button>
+		</form>
  		<div id="successMessage">
     		<h2>You did it!</h2>
     		<button id="again">Play Again</button>
@@ -24,7 +21,7 @@
 	</div>
 
 	<script type="text/javascript" src='js/jquery-3.2.1.min.js'></script>
+	<script type="text/javascript" src='js/jquery-ui.min.js'></script>
 	<script type="text/javascript" src='js/deck.js'></script>
-	<!-- <script type="text/javascript" src='js/semantic.min.js'></script> -->
 </body>
 </html>
