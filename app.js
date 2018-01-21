@@ -5,7 +5,7 @@ var session = require('express-session');
 const db = require('./config/db');
 const bodyParser = require('body-parser');
 const MongoStore = require('connect-mongo')(session);
-
+const port = process.env.PORT || 8080;
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
@@ -24,7 +24,7 @@ db.connect(function(err){
 		console.log("Connection to db failed");
 	}else{
 		// console.log("Connected to db");
-		app.listen(5000,function(){
+		app.listen(port,function(){
 			console.log("Express server listening on port 5000");
 		});
 	}
