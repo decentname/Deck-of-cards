@@ -29,7 +29,7 @@ db.connect(function(err){
 	}else{
 		// console.log("Connected to db");
 		app.listen(port,function(){
-			console.log("Express server listening on port 5000");
+			console.log("Express server running..");
 		});
 	}
 })

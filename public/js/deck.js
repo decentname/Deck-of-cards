@@ -10,7 +10,7 @@ $('document').ready(function(){
 	function popCards(val){
 		$.ajax({
 			type: "POST",
-			url: "http://localhost:5000/deck/updateDeck/",
+			url: "https://cardforblind.herokuapp.com/deck/updateDeck/",
 			data: JSON.stringify({'val':val}),
 	        contentType: 'application/json',
 			success: function(data,textStatus,xhr){
@@ -86,7 +86,7 @@ $('document').ready(function(){
 
 		$.ajax({
 			type:'GET',
-			url:'http://localhost:5000/deck/getDeck',
+			url:'https://cardforblind.herokuapp.com/deck/getDeck',
 			success:function(data,textstatus,xhr){
 				console.log("getDeck res",data.deck);
 				var cards = data.deck;
