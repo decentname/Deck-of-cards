@@ -1,5 +1,5 @@
 const {MongoClient} = require('mongodb');
-const url = "mongodb://localhost:27017/Deck-of-cards";
+const url = "mongodb://heroku_bvpclbgh:s2j4i2398tvpimnv21dr6nnn93@ds111138.mlab.com:11138/heroku_bvpclbgh";
 var db = null;
 
 exports.connect = function(done){

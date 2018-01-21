@@ -16,10 +16,8 @@ app.use(session({
   resave: false, // don't save session if unmodified
   saveUninitialized: false, // don't create session until something stored
   secret: 'keyboard cat',
-  store: new MongoStore({url : "mongodb://localhost:27017/Deck-of-cards"})
+  store: new MongoStore({url : "mongodb://heroku_bvpclbgh:s2j4i2398tvpimnv21dr6nnn93@ds111138.mlab.com:11138/heroku_bvpclbgh"})
 }));
-app.use('/',require('./controllers/index'));
-app.use('/deck',require('./controllers/deck'));
 
 db.connect(function(err){
 	if(err){
@@ -31,5 +29,9 @@ db.connect(function(err){
 		});
 	}
 })
+
+app.use('/',require('./controllers/index'));
+app.use('/deck',require('./controllers/deck'));
+
 
 module.exports = app;
