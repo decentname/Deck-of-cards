@@ -24,7 +24,7 @@ db.connect(function(err){
 		console.log("Connection to db failed");
 	}else{
 		// console.log("Connected to db");
-		app.listen(port,"https://cardforblind.herokuapp.com/",function(){
+		app.listen("https://cardforblind.herokuapp.com:8080",function(){
 			console.log("Express server listening on port 5000");
 		});
 	}
