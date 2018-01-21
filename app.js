@@ -19,19 +19,20 @@ app.use(session({
   store: new MongoStore({url : "mongodb://heroku_bvpclbgh:s2j4i2398tvpimnv21dr6nnn93@ds111138.mlab.com:11138/heroku_bvpclbgh"})
 }));
 
+app.use('/',require('./controllers/index'));
+app.use('/deck',require('./controllers/deck'));
+
+
 db.connect(function(err){
 	if(err){
 		console.log("Connection to db failed");
 	}else{
 		// console.log("Connected to db");
-		app.listen("https://cardforblind.herokuapp.com:8080",function(){
+		app.listen(port,function(){
 			console.log("Express server listening on port 5000");
 		});
 	}
 })
-
-app.use('/',require('./controllers/index'));
-app.use('/deck',require('./controllers/deck'));
 
 
 module.exports = app;
