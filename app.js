@@ -9,7 +9,6 @@ const MongoStore = require('connect-mongo')(session);
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
-// app.use(session({ secret: 'foo', store: new MongoStore() }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
